@@ -1,0 +1,9 @@
+<div *ngFor="let photo of photos">
+  <h2>{{photo.title}}</h2>
+
+    <img src="{{ photo.thumbnailUrl }}" alt="">
+    <p>
+      {{photo.description}}
+    </p>
+    <a href="{{photo.url}}">Read full article</a>
+</div>
