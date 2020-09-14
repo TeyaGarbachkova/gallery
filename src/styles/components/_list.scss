@@ -1,0 +1,14 @@
+.list-items {
+  border: 2px solid $main-color-dark;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+  padding: 20px;
+
+  .item {
+    // display: grid;
+    // grid-auto-flow: column;
+    // grid-gap: 20px;
+    // grid-template-rows: 100px 100px;
+    // grid-template-columns: 100px 100px;
+  }
+}

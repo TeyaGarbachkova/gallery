@@ -1,0 +1,66 @@
+.wrapper-header {
+  background-color: $white;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: 5px 0;
+  display: block;
+}
+
+.header-btn {
+  padding-top: 20px;
+  margin: 0 15px;
+
+  .icon {
+    vertical-align: text-bottom;
+
+    svg {
+      fill: $main-color-dark;
+    }
+  }
+
+  a {
+    font-size: 20px;
+    padding-left: 7px;
+  }
+}
+
+@include medium {
+  .wrapper-header {
+    display: block;
+    padding: 0;
+  }
+
+  .logo {
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-btn {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+  }
+
+  .header-btn.border-top {
+    border: none;
+  }
+
+  .logout-btn {
+    display: none;
+  }
+
+}

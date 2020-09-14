@@ -1,0 +1,32 @@
+@import  'abstracts/variables.scss';
+@import  'abstracts/mixins.scss';
+
+.sidebar-profile {
+  display: flex;
+
+  &-name {
+    margin-left: 20px;
+
+    .name {
+      margin-bottom: 15px;
+    }
+  }
+
+  .end-btn {
+    margin-left: auto;
+    display: none;
+
+    .icon {
+      vertical-align: sub;
+    }
+  }
+}
+
+@include medium {
+  .sidebar-profile {
+    .end-btn {
+      margin-left: auto;
+      display: block;
+    }
+  }
+}

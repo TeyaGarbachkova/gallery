@@ -1,0 +1,34 @@
+<div class="wrap-user">
+  <div class="two-col">
+    <div class="user-img circle-img">
+      <img *ngIf="user.img" src="{{user.img}}" alt="{{ user.username }}">
+      <img *ngIf="!user.img" src="../assets/img/default.png" alt="" width="200" height="200">
+    </div>
+    <div class="block-desc">
+      <h2 class="title-block">{{ user.username }}</h2>
+      <p class="block-info"> <span class="type">Name:</span> <span>{{ user.name }}</span></p>
+      <p class="block-info"> <span class="type">Email:</span> <a href="mailto:{{user.email}}">{{ user.email }}</a></p>
+      <p class="block-info social"> 
+        <span class="type">Social links:</span>
+        <a href="{{user.facebook}}" target="_blank" class="link"><svg-icon src="assets/img/facebook.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a>
+        <a href="{{user.instagram}}" target="_blank" class="link"><svg-icon src="assets/img/instagram.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a>
+      </p>
+    </div>
+  </div>
+  <div class="user-cats" *ngIf="hasCats">
+    <h3 class="title-block">{{ user.username }}<span>`s cats</span></h3>
+    <div class="three-equal-col">
+      <figure class="vertical-thumb_img" *ngFor="let cat of catsItems">
+        <div class="img-thumb">
+          <img src="{{ cat.main_img }}" alt="" class="img-thumb_img">
+          <figcaption class="text-thumb bottom-text bottom-text-left"> 
+            {{ cat.name }}
+          </figcaption>
+        </div>
+        <a class="bottom-text bottom-text-right" [routerLink]="['/cat-profile', cat.id_breed, cat.id]">
+          <svg-icon src="assets/img/eye.svg" [svgStyle]="{'width.px':28, 'height.px':28}" viewBox="0 0 28 28"></svg-icon>
+        </a>
+      </figure>
+    </div>
+  </div>
+</div>

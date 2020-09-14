@@ -1,0 +1,90 @@
+// .leftColumn {
+//   grid-area: leftColumn;
+// }
+
+.content {
+  grid-area: content;
+}
+
+.main-wrapper {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "content";
+  background-color: $white;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 0.05px 16px;
+}
+
+.col-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 15px;
+}
+
+.two-col, .one-col {
+  display: grid;
+  column-gap: 30px;
+  grid-gap: 15px;
+}
+
+.two-equal-col,
+.three-equal-col {
+  display: grid;
+  column-gap: 10px;
+  grid-gap: 15px;
+}
+
+@include small {
+  .main-wrapper {
+    max-width: 576px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .three-equal-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include medium {
+
+  .main-wrapper{
+    max-width: 768px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .two-equal-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .three-equal-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@include large {
+
+  .main-wrapper {
+    max-width: 992px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .two-col {
+    grid-template-columns: 310px 1fr;
+  }
+}
+
+@include extra-large {
+
+  .main-wrapper {
+    max-width: 1200px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}

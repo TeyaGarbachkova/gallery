@@ -1,0 +1,100 @@
+// @include small {} - min-width: 576px
+// @include medium {} - min-width: 768px
+// @include large {} - min-width: 992px
+// @include extra-large {} - min-width: 1280px
+// @include max-width($bp) {} - $bp is the width you want
+// @include min-width($bp) {} - $bp is the width you want
+
+@mixin small {
+
+  @media only screen and (min-width: 576px) {
+    @content;
+  }
+
+}
+
+@mixin medium {
+
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+
+}
+
+@mixin large {
+
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+
+}
+
+@mixin extra-large {
+
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
+
+}
+
+@mixin max-width($bp) {
+
+  @media only screen and (max-width: $bp) {
+    @content;
+  }
+
+}
+
+@mixin min-width($bp) {
+
+  @media only screen and (min-width: $bp) {
+    @content;
+  }
+
+}
+
+// Clearfix
+
+@mixin clearfix {
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+}
+
+// Font size in rem
+// @include font-size($size); - $size is in px;
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+// Placeholder styling
+//
+// @include placeholder {} - style the placeholder
+// @include placeholder-focus {} - style the placeholder on focus
+
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content;}
+  &:-moz-placeholder           {@content;}
+  &::-moz-placeholder          {@content;}
+  &:-ms-input-placeholder      {@content;}
+}
+
+@mixin placeholder-focus {
+  &:focus::-webkit-input-placeholder {@content;}
+  &:focus:-moz-placeholder           {@content;}
+  &:focus::-moz-placeholder          {@content;}
+  &:focus:-ms-input-placeholder      {@content;}
+}

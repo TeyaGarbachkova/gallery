@@ -1,3 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-photos></app-photos>
+<!-- <app-photos></app-photos> -->
 
+
+  <app-nav></app-nav>
+  <div class="global-overlay"></div>
+  <section class="main-wrapper">
+    <div class="main-carousel" *ngIf="showCarousel">
+      <app-carousel-articles></app-carousel-articles>
+    </div>
+    <!-- <app-carousel-cats></app-carousel-cats> -->
+    <div>
+      <router-outlet name="sidebar"></router-outlet>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+  <app-footer></app-footer>

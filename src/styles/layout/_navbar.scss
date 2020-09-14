@@ -1,0 +1,51 @@
+@import  'abstracts/variables.scss';
+
+.navbar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  background-color: $white;
+  width: 100%;
+  z-index: 3;
+  max-width: 90%;
+  width: 316px;
+  display: none;
+}
+
+.navbar-list {
+  // display: table;
+}
+
+.navbar-list-item {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+
+.navbar-list-item a {
+  padding: 12px;
+  font-family: $font-base;
+  font-size: 20px;
+  color: $main-color-dark;
+}
+
+@include medium {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    position: static;
+    top: 0;
+    background-color: transparent;
+    max-width: 100%;
+    width: auto;
+  }
+
+  .navbar-list-item {
+    display: inline-block;
+    width: auto;
+  }
+}

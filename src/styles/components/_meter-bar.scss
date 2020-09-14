@@ -1,0 +1,66 @@
+.meter-bar {
+  height: 28px;
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: $border-color;
+}
+
+.meter-bar_inner:after, 
+.meter-bar_inner:before,
+.meter-bar:after,
+.meter-bar:before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: $white;
+}
+
+.meter-bar_range {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  border-radius: 20px 0 0 20px;
+  background-color: $accent-color;
+  transition: width .4s ease-in-out;
+}
+
+.meter-bar:after {
+  left: 40%;
+}
+
+.meter-bar:before {
+  left: 20%;
+}
+
+.meter-bar_inner:after {
+  left: 80%;
+}
+
+.meter-bar_inner:before {
+  left: 60%;
+}
+
+.meter-bar_range_1 {
+  width: 20%;
+}
+
+.meter-bar_range_2 {
+  width: 40%;
+}
+
+.meter-bar_range_3 {
+  width: 60%;
+}
+
+.meter-bar_range_4 {
+  width: 80%;
+}
+
+.meter-bar_range_5 {
+  width: 100%;
+}

@@ -1,0 +1,10 @@
+<div style="text-align:center">
+  <h1>The most liked cats</h1>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let cats of topLiked">
+      <div class="img-thumb">
+        <img class="img-thumb_img" src="{{ cats.main_img }}">
+      </div>
+    </ng-template>  
+  </owl-carousel-o>
+</div>

@@ -1,0 +1,51 @@
+// Colors
+
+$white: #fff;
+$black: #000;
+$main-color-dark: #28145e;
+$accent-color: #ffbb64;
+$secondary-color: #d72e2e;
+$border-color: #e9e9e9;
+
+$viber-color: #834995;
+
+
+
+.other-theme {
+  $white: #fff;
+  $black: #000;
+  $main-color-dark: #145e27;
+  $main-color-medium: #46fc4f;
+  $main-color-light: #9bf6a0;
+  $accent-color: #2fddfc;
+  $secondary-color: #cecdfd;
+  $secondary-color-medium: #adb2f7;
+  $border-color: #180404;
+  $light-blue: #fdfff2;
+  $text-color: #212324;
+  $gray-text: #5b5b5b;
+  $gray-bg: #fafafa;
+  $green: #16c97d;
+  $viber-color: #834995;
+  $fb-color: #1877F2;
+}
+
+// Fonts
+
+@font-face {
+  font-family: 'Adventuring';
+  src: url('src/assets/fonts/Adventuring/adventuring-webfont.eot');
+  src: url('src/assets/fonts/Adventuring/adventuring-webfont.eot?#iefix') format('embedded-opentype'),
+    url('src/assets/fonts/Adventuring/adventuring-webfont.woff2') format('woff2'),
+    url('src/assets/fonts/Adventuring/adventuring-webfont.woff') format('woff'),
+    url('src/assets/fonts/Adventuring/adventuring-webfont.ttf') format('truetype'),
+    url('src/assets/fonts/Adventuring/adventuring-webfont.svg') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+$font-base: 'Adventuring', sans-serif;
+$font-text: 'Times New Roman';
+// $font-secondary: 'FS Joey Cyrillic',
+// sans-serif;

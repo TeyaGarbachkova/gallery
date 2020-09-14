@@ -1,0 +1,275 @@
+@import  'abstracts/variables.scss';
+
+html {
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  /* Firefox */
+  -webkit-font-smoothing: antialiased;
+  /* WebKit  */
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea {
+  border-radius: 0;
+  color: currentColor;
+}
+
+:focus {
+  outline: none;
+}
+
+::selection {
+  background-color: $secondary-color;
+}
+
+body {
+  @include font-size(16px);
+
+  position: relative;
+  font-family: $font-base;
+  line-height: 1.2;
+  color: $main-color-dark;
+  background-color: $white;
+}
+
+// h1,
+// h2 {
+//   @include font-size(28px);
+
+//   &.bigger {
+//     @include font-size(32px);
+//   }
+
+// }
+
+// h3 {
+//   @include font-size(22px);
+// }
+
+.text-content {
+  @include font-size(17px);
+
+  // color: $text-color;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    // color: $main-color-dark;
+  }
+
+}
+
+ul,
+ol {
+  // padding-left: 20px;
+  // margin: 0;
+}
+
+// ul {
+//   list-style: circle;
+// }
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+a.disable {
+  pointer-events: none;
+  cursor: default;
+}
+
+.global-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  background-color: $black;
+  opacity: 0.19;
+  z-index: 2;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  display: block;
+  width: 100%;
+}
+
+.img-thumb {
+  position: relative;
+  overflow: hidden;
+  min-width: 220px;
+  // max-width: 310px;
+  height: 220px;
+  width: 100%;
+  color: $black;
+  text-align: center;
+  background: rgba(242, 242, 242, .5);
+
+  &:hover:after {
+    transform: skew(-45deg) scaleX(1);
+    transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  &_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.border {
+  border: 1px solid #C5C5C5;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.border-top {
+  border-top: 2px solid $border-color;
+}
+
+.circle-img {
+  width: 92px;
+  height: 92px;
+
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.heart {
+  &:before {
+    content: "";
+    background: url("../assets/img/heart-unlike.png") no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    &:before {
+      background: url("../assets/img/heart-like.png") no-repeat;
+      background-size: cover;
+    }
+  }
+  
+  &.like {
+    &:before {
+      background: url("../assets/img/heart-like.png") no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+.object-fit {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -9999px;
+    left: -9999px;
+    margin: auto;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+
+
+    @supports (object-fit: cover) {
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+  }
+
+}
+
+.main-carousel {
+  overflow: hidden;
+}
+
+.is-open {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@include small {
+
+
+}
+
+// @include medium {
+
+//   h1,
+//   h2 {
+//     @include font-size(34px);
+//   }
+
+//   h3 {
+//     @include font-size(24px);
+//   }
+// }
+
+// @include large {
+
+//   a:not(.btn):hover {
+//     // color: $main-color-light;
+//   }
+
+//   h1,
+//   h2 {
+//     @include font-size(36px);
+//   }
+// }

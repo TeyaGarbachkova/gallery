@@ -1,0 +1,28 @@
+ <div class="album-filters two-equal-col">
+  <form #selectCat="ngForm" (change)="selectCatHandler(selectCat)" class="form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="breed">Choose breed</label>
+        <select #breedInput="ngModel" ngModel name="breed" class="form-input" id="breed" placeholder="Choose Breed">
+          <option [value]="default"></option>
+          <option *ngFor="let catBreed of catsBreed | keyvalue" [value]="catBreed.key">
+            {{ catBreed.value }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <form #selectBest="ngForm" (change)="selectBestHandler(selectBest)" class="form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="filterBest">Choose the most</label>
+        <select #filterBestInput="ngModel" ngModel name="filterBest" class="form-input" id="filterBest" placeholder="Choose">
+          <option [value]="default"></option>
+          <option [value]="1">The most like</option>
+          <option [value]="2">The most view</option>
+        </select>
+      </div>
+    </div>
+  </form>
+ </div>
+  

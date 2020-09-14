@@ -1,0 +1,28 @@
+.wrap-cat-profile {
+  .title-block_title {
+    margin-bottom: 10px;
+  }
+  
+  .subtitle-block {
+    display: flex;
+
+    .owner {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+
+      &-img {
+        margin-left: 10px;
+        margin-right: 5px;
+      }
+    }
+    
+    .circle-img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .wrap-gallery {
+    margin-top: 30px;
+  }
+}

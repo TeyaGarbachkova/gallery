@@ -1,0 +1,15 @@
+<div class="content">
+  <div class="col-auto">
+    <figure class="vertical-thumb_img img-thumb" *ngFor="let cat of catsItems">
+      <div class="img-thumb">
+        <img src="{{ cat.main_img }}" alt="" class="img-thumb_img">
+        <figcaption class="text-thumb bottom-text bottom-text-left"> 
+          {{ cat.name }}
+        </figcaption>
+      </div>
+      <a class="bottom-text bottom-text-right" [routerLink]="['/cat-profile', cat.id_breed, cat.id]">
+        <svg-icon src="assets/img/eye.svg" [svgStyle]="{'width.px':28, 'height.px':28}" viewBox="0 0 28 28"></svg-icon>
+      </a>
+    </figure>
+  </div>
+</div>

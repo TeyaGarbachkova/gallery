@@ -1,0 +1,75 @@
+@import 'abstracts/variables.scss';
+@import 'abstracts/mixins.scss';
+
+.alphabet-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .letter {
+    border: 2px solid $main-color-dark;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    cursor: pointer;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.1);
+      border: 2px solid $secondary-color;
+    }
+  }
+}
+
+.list-names {
+  margin: 20px 0;
+
+  .letter-names {
+    color: $secondary-color;
+    margin-bottom: 10px;
+  }
+
+  .grid-names {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    grid-gap: 15px;
+  }
+
+  .item-name {
+    border: 2px solid $border-color;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+}
+
+@include small {
+  .list-names {
+    .grid-names {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@include medium {
+  .list-names {
+    .grid-names {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+@include large {
+  .list-names {
+    .grid-names {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}

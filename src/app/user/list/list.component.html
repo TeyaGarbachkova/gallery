@@ -1,0 +1,28 @@
+<ng-template #loader>
+  Loading...
+</ng-template>
+<ng-template #list>
+  <div class="content">
+    <div class="col-auto">
+      <div class="vertical-thumb" *ngFor = "let user of users">
+        <div class="vertical-thumb-wrap">
+          <a class="vertical-thumb-img circle-img" [routerLink]="['/user', user.id]">
+            <img *ngIf="!user.img" src="../assets/img/default.png" alt="" width="92" height="92">
+            <img *ngIf="user.img" src="{{user.img}}" alt="" width="92" height="92">
+          </a>
+          <div class="vertical-thumb-desc">
+            <p class="text">{{user.username}}</p>
+          </div>
+          <div class="vertical-thumb-social-icons">
+            <div class="icons"><a href="mailto:{{user.email}}"><svg-icon src="assets/img/mail.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
+            <div class="icons"><a href="{{user.facebook}}" target="_blank"><svg-icon src="assets/img/facebook.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
+            <div class="icons"><a href="{{user.instagram}}" target="_blank"><svg-icon src="assets/img/instagram.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
+          </div>
+          <a [routerLink]="['/user', user.id]" class="btn primary-btn">View profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="users ? list : loader"></ng-container>

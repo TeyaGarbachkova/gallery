@@ -1,0 +1,55 @@
+<div class="wrap-form two-col">
+  <div class="left-col-form"></div>
+  <div class="right-col-form">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm)" class="form">
+      <div class="form-row one-col">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-input" placeholder="Enter Username" id="username" name="username" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-input" placeholder="Enter Name" id="name" name="name" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo</label>
+          <input type="text" class="form-input" placeholder="Enter Photo link" id="photo" name="photo" formControlName="photo">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-input" placeholder="Enter Email" id="email" name="email" formControlName="email">
+        </div>
+        <div formGroupName="passwords">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-input" placeholder="Enter Password" id="password" name="password" formControlName="password">
+          </div>
+          <div class="form-group">
+            <label for="password_repeat">Repeat Password</label>
+            <input type="password" class="form-input" placeholder="Repeat Password" id="password_repeat" name="password_repeat" formControlName="password_repeat">
+          </div>
+          <div *ngIf="registerForm.get('passwords')?.errors?.passwordMatch">Password don`t match</div>
+        </div>
+        <div class="form-group">
+          <label for="facebook">Facebook link</label>
+          <input type="text" class="form-input" placeholder="Enter Facebook" id="facebook" name="facebook" formControlName="facebook">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram link</label>
+          <input type="text" class="form-input" placeholder="Enter Instagram" id="instagram" name="instagram" formControlName="instagram">
+        </div>
+
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      </div>
+      <div class="form-row">
+        <div class="btn-pos">
+          <button type="submit" class="registerbtn btn primary-btn">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- {{registerForm.value | json}} -->

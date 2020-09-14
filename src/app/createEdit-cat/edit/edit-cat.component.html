@@ -1,0 +1,75 @@
+<div class="wrap-form two-col">
+  <div class="left-col-form"></div>
+  <div class="right-col-form">
+    <h2>Edit cat</h2>
+    <form #editCatForm="ngForm" (ngSubmit)="editCatHandler(editCatForm)" class="form">
+      <div class="form-row col-auto">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input #nameInput="ngModel" ngModel="{{this.cat.name}}" class="form-input" id="name" type="text" name="name" placeholder="Enter Name" [value]="this.cat.name" />
+        </div>
+        <div class="form-group">
+          <label for="breed">Breed</label>
+          <select #breedInput="ngModel" ngModel="{{this.breedModel}}" name="breed" class="form-input" id="breed" placeholder="Choose Breed"> 
+            <option *ngFor="let catBreed of breeds; let i = index" [ngValue]="catBreed.breed_id" [selected]="i == this.cat.id_breed">{{ catBreed.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input #ageInput="ngModel" ngModel="{{this.cat.age}}" name="age" class="form-input" id="age" type="text" placeholder="Enter Age" [value]="this.cat.age"/>
+        </div>
+        <div class="form-group">
+          <label for="sex">Breed</label>
+          <select #sexInput="ngModel" ngModel="{{this.cat.sex}}" name="sex" class="form-input" id="sex" placeholder="Choose Sex"> 
+            <option value="" disabled>Choose a sex</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mainImg">Main Image</label>
+          <input #mainImgInput="ngModel" ngModel="{{this.cat.main_img}}" name="mainImg" (input)="inputImgChange($event.target.value)" class="form-input" id="mainImg" type="text" placeholder="Enter Main Img" />
+          <div class="main-img img-thumb">
+            <img src="{{this.cat.main_img}}" alt="" class="img-thumb_img">
+          </div>
+        </div>
+      </div>
+      <div class="form-row col-auto">
+          <!-- Gallery: -->
+          <div class="form-group" *ngFor="let inputImg of inputsImg; let i = index;" #img>
+            <label for="image">Image</label>
+            <input #imageInput="ngModel" ngModel="{{inputImg}}" name="image {{i}}" (input)="inputImgsChange($event.target.value,i)" class="form-input" id="image" type="text" placeholder="Enter Image" [value]="inputImg"/>
+            <span class="del-icon" (click)="delComponent(ev,i,img)" *ngIf="isRemoveInput">
+              <svg-icon src="assets/img/minus.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon>
+            </span>
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="btn-pos">
+          <div (click)="addComponent()" class="btn primary-btn">
+            <span class="icon">
+              <svg-icon src="assets/img/more.svg" [svgStyle]="{'width.px':12, 'height.px':12}" viewBox="0 0 12 12"></svg-icon>
+            </span>
+            Add image
+          </div>
+        </div>
+
+        <div class="form-group-img three-equal-col">
+          <div class="group-img img-thumb"  *ngFor="let img of inputsImg">
+            <img src="{{ img }}" alt="" class="img-thumb_img">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="btn-pos">
+          <button type="submit" class="btn primary-btn">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- {{editCatForm.value | json}} -->

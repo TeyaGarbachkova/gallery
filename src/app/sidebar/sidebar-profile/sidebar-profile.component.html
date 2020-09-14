@@ -1,0 +1,25 @@
+<div class="leftColumn">
+    <div class="sidebar-profile">
+      <div class="circle-img">
+        <img *ngIf="userImg" src="{{ userImg }}" alt="{{ username }}">
+        <img *ngIf="!userImg" src="../assets/img/default.png" alt="{{ username }}" width="92" height="92">
+      </div>
+      <div class="sidebar-profile-name">
+        <p class="name">{{ username }}</p>
+        <a [routerLink]="['/profile']" class="btn primary-btn">Change profile</a>
+      </div>
+      <div class="end-btn">
+        <a (click)="auth.logout()" class="btn primary-btn">
+          <span class="icon"><svg-icon src="assets/img/logout.svg" [svgStyle]="{'width.px':20, 'height.px':20}" viewBox="0 0 20 20"></svg-icon></span>
+          Logout
+        </a>
+      </div>
+    </div>
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item"><a [routerLink]="['/my-cats']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">My cats</a></li>
+      <li class="sidebar-list-item"><a [routerLink]="['/create-cat']" routerLinkActive="active">Create cat</a></li>
+      <li class="sidebar-list-item"><a [routerLink]="['/favourite-cats']" routerLinkActive="active">Favourite cats</a></li>
+    </ul>
+    <div class="slider"><div class="indicator"></div></div>
+
+</div>

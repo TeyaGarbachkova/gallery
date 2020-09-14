@@ -1,0 +1,45 @@
+<div class="content">
+  <div class="wrap-cat-profile">
+    <div class="two-equal-col">
+      <div class="wrap-img">
+        <div class="img-thumb">
+          <img src="{{ cat.main_img }}" alt="{{ cat.name }}" class="img-thumb_img">
+        </div>
+      </div>
+      <div class="block-desc">
+        <div class="title-block">
+          <h2 class="title-block_title">{{ cat.name }} 
+            <span class="icon-sex" *ngIf="checkSex(cat.sex)"><svg-icon src="assets/img/male.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon></span>
+            <span class="icon-sex" *ngIf="!checkSex(cat.sex)"><svg-icon src="assets/img/female.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon></span>
+          </h2>
+          <div class="subtitle-block">
+            <a [routerLink]="['/user', user.id]" class="owner">
+              <span>by</span>
+              <div class="owner-img circle-img">
+                <img *ngIf="cat.user_img" src="{{ cat.user_img }}" alt="{{ cat.username }}">
+                <img *ngIf="!cat.user_img" src="../assets/img/default.png" alt="" width="32" height="32">
+              </div>
+              <span>{{ cat.username }}</span>
+            </a>
+            <div class="likes heart" [class.like]="countLikes(cat.countLikes)">
+              <span>{{ cat.countLikes }}</span>
+            </div>
+          </div>
+        </div>  
+        <p class="block-info"><span class="type">Breed:</span>{{ breedName }}</p>
+        <p class="block-info"><span class="type">Age:</span>{{ cat.age }}</p>
+        <div *ngIf="hasBtnEdit" class="btn-pos">
+          <a class="btn primary-btn" [routerLink]="['/edit-cat', cat.id_breed, cat.id]">Edit</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="hasGallery" class="wrap-gallery">
+      <h3 class="title-block">Gallery</h3>
+      <div class="col-auto">
+        <div class="img-thumb" *ngFor="let img of cat.img">
+          <img src="{{ img }}" alt="{{ cat.name }}" class="img-thumb_img" (click)="open(cat)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

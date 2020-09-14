@@ -1,0 +1,83 @@
+@import  'abstracts/variables.scss';
+
+.wrap-form {
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.left-col-form, .right-col-form {
+  border-radius: 10px;
+}
+
+.left-col-form {
+  background: url("https://c.stocksy.com/a/M2N700/z9/1756854.jpg") top center/cover no-repeat;
+}
+
+.right-col-form {
+  margin: 20px;
+}
+
+.form {
+  display: inline-block;
+  width: 100%;
+
+  .form-row {
+    margin-top: 15px;
+
+    .form-group {
+      position: relative;
+      display: block;
+      // margin: 20px 0;
+
+      label {
+        display: block;
+        color: $secondary-color;
+        margin-bottom: 10px;
+      }
+
+      .form-input {
+        border: 2px solid $white;
+        border-bottom: 2px solid $border-color;
+        padding: 7px 0;
+        width: 100%;
+        background: transparent;
+
+        &::placeholder {
+          color: transparent;
+        }
+
+        &:focus {
+          padding-left: 6px;  
+          border-width: 3px;
+          border-image: linear-gradient(to right, red,blue);
+          border-image-slice: 1;
+        }
+      }
+
+      .main-img {
+        margin-top: 10px;
+      }
+
+      .del-icon {
+        position: absolute;
+        top: 0px;
+        left: 65px;
+        cursor: pointer;
+      }
+    }
+
+    .form-group-img {
+      margin-top: 15px;
+      
+      .group-img {
+        min-width: 120px;
+        height: 120px;
+      }
+    }
+  }
+}
+
+@include medium {
+}
+
+@include large { 
+}

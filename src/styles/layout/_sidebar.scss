@@ -1,0 +1,36 @@
+@import  'abstracts/variables.scss';
+
+.sidebar-list {
+  display: flex;
+  margin: 25px -10px 0;
+
+  .sidebar-list-item {
+    font-family: $font-base;
+    font-size: 18px;
+    color: $white;
+    padding: 8px 0;
+    color: $main-color-dark;
+
+    a {
+      padding: 7px;
+      border: 1px solid transparent;
+      border-bottom-color: $border-color;
+
+      &.active {
+        border-color: $border-color;
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+}
+
+
+@include small {
+  .sidebar-list {
+    margin: 25px 0;
+
+    .sidebar-list-item a {
+      padding: 15px;
+    }
+  }
+}
