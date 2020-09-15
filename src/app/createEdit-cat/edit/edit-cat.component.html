@@ -42,7 +42,7 @@
             <label for="image">Image</label>
             <input #imageInput="ngModel" ngModel="{{inputImg}}" name="image {{i}}" (input)="inputImgsChange($event.target.value,i)" class="form-input" id="image" type="text" placeholder="Enter Image" [value]="inputImg"/>
             <span class="del-icon" (click)="delComponent(ev,i,img)" *ngIf="isRemoveInput">
-              <svg-icon src="assets/img/minus.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon>
+              <svg-icon-sprite [src]="'assets/sprites/sprite.svg#minus'" [width]="'20px'" [height]="'20px'" [attr.style]="'color: #d72e2e'" [viewBox]="'0 0 20 20'"></svg-icon-sprite>
             </span>
           </div>
       </div>
@@ -50,7 +50,7 @@
         <div class="btn-pos">
           <div (click)="addComponent()" class="btn primary-btn">
             <span class="icon">
-              <svg-icon src="assets/img/more.svg" [svgStyle]="{'width.px':12, 'height.px':12}" viewBox="0 0 12 12"></svg-icon>
+              <svg-icon-sprite [src]="'assets/sprites/sprite.svg#more'" [width]="'12px'" [height]="'12px'" [viewBox]="'0 0 12 12'"></svg-icon-sprite>
             </span>
             Add image
           </div>

@@ -6,7 +6,7 @@ import { AlbumFilterComponent } from '../album-filter/album-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FilterBestPipe } from './filterPipe/filter-best.pipe';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [ListComponent, FilterPipe, AlbumFilterComponent, FilterBestPipe],
@@ -15,7 +15,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AngularSvgIconModule.forRoot()
+    IconSpriteModule
   ],
   exports: [ListComponent]
 })

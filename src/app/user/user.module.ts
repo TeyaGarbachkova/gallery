@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { UserComponent } from './user/user.component';
 import { RouterModule } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [ListComponent, UserComponent],
   imports: [
     CommonModule,
     RouterModule,
-    AngularSvgIconModule.forRoot()
+    IconSpriteModule
   ],
   exports: [ListComponent]
 })

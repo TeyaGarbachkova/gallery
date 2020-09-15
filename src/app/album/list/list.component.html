@@ -25,10 +25,10 @@
         </p>
         <div>
           <a class="link-icon" href="javascript:(void)" alt="Images" (click)="open(cat)">
-            <!-- <svg-icon-sprite [src]="'assets/sprites/sprite.svg#photo'" [width]="'28px'" [height]="'28px'" [viewBox]="0 0 28 28"></svg-icon-sprite> -->
+            <svg-icon-sprite [src]="'assets/sprites/sprite.svg#photo'" [width]="'28px'" [height]="'28px'" [viewBox]="'0 0 28 28'"></svg-icon-sprite>
           </a>
           <a class="link-icon" [routerLink]="['/cat-profile', cat.id_breed, cat.id]" alt="View">
-            <svg-icon-sprite src="assets/img/eye.svg" [svgStyle]="{'width.px':28, 'height.px':28}" viewBox="0 0 28 28"></svg-icon-sprite>
+            <svg-icon-sprite [src]="'assets/sprites/sprite.svg#eye'" [width]="'28px'" [height]="'28px'" [viewBox]="'0 0 28 28'"></svg-icon-sprite>
           </a>
         </div>
       </div>

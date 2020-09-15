@@ -1,7 +1,8 @@
 <header class="wrapper-header">
   <div class="navbar-logo">
     <a [routerLink]="[{outlets: {primary: ['album'], sidebar: null}}]" class="logo">
-      <svg-icon src="assets/img/logo.svg" [svgStyle]="{'width.%':100, 'height.%':100}" viewBox="0 0 100 100"></svg-icon>
+      <!-- <svg-icon src="assets/img/logo.svg" [svgStyle]="{'width.%':100, 'height.%':100}" viewBox="0 0 100 100"></svg-icon> -->
+      <img src="assets/icons/logo.svg" width="100%"  height="100%" alt="">
     </a>
   </div>
   <div class="hamburger-btn">
@@ -33,13 +34,13 @@
       </li>
       <li *ngIf="auth.getToken()" class="header-btn border-top">
         <a [routerLink]="[{outlets: {primary: ['my-cats'], sidebar: ['sidebar-profile']}}]" class="">
-          <span class="icon"><svg-icon src="assets/img/gear.svg" [svgStyle]="{'width.px':20, 'height.px':20}" viewBox="0 0 20 20"></svg-icon></span> 
+          <span class="icon"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#gear'" [width]="'20px'" [height]="'20px'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span> 
             For me
         </a>
       </li>
       <li *ngIf="auth.getToken()" class="header-btn logout-btn">
         <a routerLink="" (click)="auth.logout()">
-          <span class="icon"><svg-icon src="assets/img/logout.svg" [svgStyle]="{'width.px':20, 'height.px':20}" viewBox="0 0 20 20"></svg-icon></span>
+          <span class="icon"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#logout'" [width]="'20px'" [height]="'20px'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span>
           Logout
         </a></li>
     </ul>

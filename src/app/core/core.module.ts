@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [NavComponent],
   imports: [
     CommonModule,
     RouterModule,
-    AngularSvgIconModule.forRoot()
+    IconSpriteModule
   ],
   exports: [NavComponent]
 })

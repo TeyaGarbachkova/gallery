@@ -9,8 +9,8 @@
       <div class="block-desc">
         <div class="title-block">
           <h2 class="title-block_title">{{ cat.name }} 
-            <span class="icon-sex" *ngIf="checkSex(cat.sex)"><svg-icon src="assets/img/male.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon></span>
-            <span class="icon-sex" *ngIf="!checkSex(cat.sex)"><svg-icon src="assets/img/female.svg" [svgStyle]="{'width.px':20, 'height.px':20, 'fill': '#d72e2e'}" viewBox="0 0 20 20"></svg-icon></span>
+            <span class="icon-sex" *ngIf="checkSex(cat.sex)"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#male'" [width]="'20px'" [height]="'20px'" [attr.style]="'color: #d72e2e'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span>
+            <span class="icon-sex" *ngIf="!checkSex(cat.sex)"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#female'" [width]="'20px'" [height]="'20px'" [attr.style]="'color: #d72e2e'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span>
           </h2>
           <div class="subtitle-block">
             <a [routerLink]="['/user', user.id]" class="owner">

@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { createEditCatComponents } from './index';
 import { EditCatComponent } from './edit/edit-cat.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
       FormsModule,
       ReactiveFormsModule,
       RouterModule,
-      AngularSvgIconModule.forRoot()
+      IconSpriteModule
   ]
 })
 export class CatCreateEditModule {  };

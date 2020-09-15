@@ -14,9 +14,11 @@
             <p class="text">{{user.username}}</p>
           </div>
           <div class="vertical-thumb-social-icons">
-            <div class="icons"><a href="mailto:{{user.email}}"><svg-icon src="assets/img/mail.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
-            <div class="icons"><a href="{{user.facebook}}" target="_blank"><svg-icon src="assets/img/facebook.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
-            <div class="icons"><a href="{{user.instagram}}" target="_blank"><svg-icon src="assets/img/instagram.svg" [svgStyle]="{'width.px':22, 'height.px':22}" viewBox="0 0 22 22"></svg-icon></a></div>
+            <div class="icons"><a href="mailto:{{user.email}}"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#mail'" [width]="'22px'" [height]="'22px'" [viewBox]="'0 0 22 22'"></svg-icon-sprite></a></div>
+            <div class="icons"><a href="{{user.facebook}}" target="_blank"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#facebook'" [width]="'22px'" [height]="'22px'" [viewBox]="'0 0 22 22'"></svg-icon-sprite></a></div>
+            <div class="icons"><a href="{{user.instagram}}" target="_blank">
+              <img  class="icon" src="assets/icons/instagram.svg" alt="Instagram"/>
+            </a></div>
           </div>
           <a [routerLink]="['/user', user.id]" class="btn primary-btn">View profile</a>
         </div>

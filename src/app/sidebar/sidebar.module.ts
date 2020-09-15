@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarProfileComponent } from './sidebar-profile/sidebar-profile.component';
 import { RouterModule } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [  
@@ -11,7 +11,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
   imports: [
     CommonModule,
     RouterModule,
-    AngularSvgIconModule.forRoot()
+    IconSpriteModule
   ],
   exports: [SidebarProfileComponent]
 })

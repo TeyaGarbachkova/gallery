@@ -175,7 +175,7 @@ a.disable {
 .heart {
   &:before {
     content: "";
-    background: url("../assets/img/heart-unlike.png") no-repeat;
+    background: url("../../assets/img/heart-unlike.png") no-repeat;
     background-size: cover;
     width: 40px;
     height: 40px;
@@ -185,14 +185,14 @@ a.disable {
 
   &:hover {
     &:before {
-      background: url("../assets/img/heart-like.png") no-repeat;
+      background: url("../../assets/img/heart-like.png") no-repeat;
       background-size: cover;
     }
   }
   
   &.like {
     &:before {
-      background: url("../assets/img/heart-like.png") no-repeat;
+      background: url("../../assets/img/heart-like.png") no-repeat;
       background-size: cover;
     }
   }
@@ -243,7 +243,6 @@ a.disable {
 .hidden {
   display: none;
 }
-
 
 @include small {
 

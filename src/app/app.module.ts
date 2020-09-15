@@ -23,7 +23,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { UserCatsComponent } from './user-cats/user-cats.component';
 import { FavouriteCatsComponent } from './favourite-cats/favourite-cats.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { CatCreateEditModule } from './createEdit-cat/catCreateEdit.module';
 import { CatProfileComponent } from './cat-profile/cat-profile.component';
@@ -70,7 +69,6 @@ import { FooterComponent } from './footer/footer.component';
     LightboxModule,
     AngularFireModule.initializeApp(environment.firebase, 'cats'),
     AngularFireDatabaseModule,
-    AngularSvgIconModule.forRoot(),
     IconSpriteModule
   ],
   providers: [],
