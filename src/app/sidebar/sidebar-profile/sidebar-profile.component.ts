@@ -10,16 +10,19 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class SidebarProfileComponent implements OnInit {
 
-  userID = JSON.parse(sessionStorage.getItem("LoggedInUser"));
-  user;
-  username;
-  userImg;
+  userID: string;
+  user: any;
+  username: string;
+  userImg: string;
 
-  constructor(private route: Router, private apiService: ApiService, private auth: AuthService) { }
+  constructor(private route: Router, private apiService: ApiService, private auth: AuthService) {
+    this.userID = JSON.parse(sessionStorage.getItem("LoggedInUser"));
+  }
 
   ngOnInit() {
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
+      
       this.username = user.username;
       this.userImg = user.img;
     })

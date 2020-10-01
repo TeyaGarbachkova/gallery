@@ -9,24 +9,37 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditCatComponent implements OnInit {
 
-  userID = sessionStorage.getItem("LoggedInUser");
-  user;
-  cat: any = [];
-  own_cats: any = [];
-  cats: any = [];
-  breedID;
-  breeds: any = [];
-  breedModel;
-  inputsImg: any = [''];
-  images: any = [];
-  isRemoveInput: boolean = true;
-  hasMainImg: boolean = false;
-  newMainImg;
-  newImg: any = [];
+  userID: string;
+  user: any;
+  cat: any;
+  cats: any;
+  ownCats: any;
+  breedID: string;
+  breeds: any;
+  breedModel: any;
+  inputsImg: any;
+  images: any;
+  isRemoveInput: boolean;
+  hasMainImg: boolean;
+  newMainImg: string;
+  newImg: any;
 
   constructor(private ActivetedRoute: ActivatedRoute,
   private apiService: ApiService,
-  private route: Router) { }
+  private route: Router) { 
+    this.userID = sessionStorage.getItem("LoggedInUser");
+    this.user = [];
+    this.cat = [];
+    this.cats = [];
+    this.ownCats = [];
+    this.breeds = [];
+
+    this.images = [];
+    this.inputsImg = [''];
+    this.newImg = [];
+    this.isRemoveInput = true;
+    this.hasMainImg = false;
+  }
 
   ngOnInit() {
     this.apiService.getCatsById(this.ActivetedRoute.snapshot.params.breed_id,this.ActivetedRoute.snapshot.params.id).subscribe(cat => {
@@ -53,7 +66,7 @@ export class EditCatComponent implements OnInit {
 
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
-      this.own_cats = this.user.own_cats;
+      this.ownCats = this.user.own_cats;
     })
   }
 

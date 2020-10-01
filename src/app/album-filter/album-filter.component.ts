@@ -15,12 +15,11 @@ export class AlbumFilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectCatHandler(selectCatForm) {
+  selectCatHandler(selectCatForm: any) {
     this.breedId.emit(selectCatForm.value.breed);
   }
 
-  selectBestHandler(selectBestForm) {
-    //console.log(selectBestForm)
+  selectBestHandler(selectBestForm: any) {
     this.bestId.emit(selectBestForm.value.filterBest);
   }
 }

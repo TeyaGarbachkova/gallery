@@ -1,11 +1,12 @@
-<ng-template #loader>
-  <div class="loader">
-    <img src="assets/img/loader.gif" alt="">
-  </div>
-</ng-template>
-<ng-template #catList>
+<app-carousel-cats></app-carousel-cats>
 <div class="content">
   <app-album-filter [catsBreed]="catsBreed" (breedId)="displayBreedId($event)" (bestId)="displayBestId($event)"></app-album-filter>
+  <ng-template #loader>
+    <div class="loader">
+      <img src="assets/img/loader.gif" alt="">
+    </div>
+  </ng-template>
+  <ng-template #catList>
   <div class="col-auto">
     <div class="vertical-thumb_img border" *ngFor="let cat of catsItems | filter:breedId | filterBest:bestId; let i=index">
       <a [routerLink]="['/user', cat.user_id]" class="img-text">
@@ -13,8 +14,10 @@
         <img *ngIf="!cat.user_img" src="../assets/img/default.png" alt="" width="30" height="30">
         <span>{{cat.username}}</span>
       </a>
-      <figure class="img-thumb">
-        <img src="{{ cat.main_img }}" alt="" class="img-thumb_img" [routerLink]="['/cat-profile', cat.id_breed, cat.id]">
+      <figure>
+        <div class="img-thumb">
+          <img src="{{ cat.main_img }}" alt="" class="img-thumb_img" [routerLink]="['/cat-profile', cat.id_breed, cat.id]">
+        </div>
         <figcaption class="text-thumb bottom-text bottom-text-left">
            {{ cat.name }} , {{ cat.age }}
         </figcaption>
@@ -34,7 +37,6 @@
       </div>
     </div>
   </div>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="showCatList ? catList : loader"></ng-container>
 </div>
-</ng-template>
-
-<ng-container *ngTemplateOutlet="showCatList ? catList : loader"></ng-container>

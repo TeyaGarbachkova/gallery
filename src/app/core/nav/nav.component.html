@@ -1,7 +1,6 @@
 <header class="wrapper-header">
   <div class="navbar-logo">
     <a [routerLink]="[{outlets: {primary: ['album'], sidebar: null}}]" class="logo">
-      <!-- <svg-icon src="assets/img/logo.svg" [svgStyle]="{'width.%':100, 'height.%':100}" viewBox="0 0 100 100"></svg-icon> -->
       <img src="assets/icons/logo.svg" width="100%"  height="100%" alt="">
     </a>
   </div>
@@ -28,13 +27,13 @@
       <li class="navbar-list-item"><a [routerLink]="[{outlets: 
         {primary: ['user', 'list'], sidebar: null}
       }]">Users</a></li>
-      <li *ngIf="!auth.getToken()" class="header-btn"><a  [routerLink]="[{outlets: 
+      <li *ngIf="!auth.getToken()" class="header-btn shape"><a  [routerLink]="[{outlets: 
         {primary: ['login'], sidebar: null}
       }]" class=""> Login </a>
       </li>
-      <li *ngIf="auth.getToken()" class="header-btn border-top">
+      <li *ngIf="auth.getToken()" class="header-btn border-top shape">
         <a [routerLink]="[{outlets: {primary: ['my-cats'], sidebar: ['sidebar-profile']}}]" class="">
-          <span class="icon"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#gear'" [width]="'20px'" [height]="'20px'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span> 
+          <!-- <span class="icon"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#gear'" [width]="'20px'" [height]="'20px'" [viewBox]="'0 0 20 20'"></svg-icon-sprite></span>  -->
             For me
         </a>
       </li>

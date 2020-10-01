@@ -9,27 +9,29 @@ import { ApiService } from 'src/app/api.service';
 })
 export class UserComponent implements OnInit {
 
-  user: any = [];
-  cats: any = [];
-  catsItems: any = [];
-  own_cats: any = [];
-  hasCats: boolean = false;
+  user: any;
+  cats: any;
+  catsItems: any;
+  ownCats: any;
+  hasCats: boolean;
   
-  constructor(
-    private ActivetedRoute: ActivatedRoute,
-    private apiService: ApiService,
-    private route: Router
-    ) { }
+  constructor(private ActivetedRoute: ActivatedRoute, private apiService: ApiService, private route: Router) {
+    this.user = [];
+    this.cats = [];
+    this.catsItems = [];
+    this.ownCats = [];
+    this.hasCats = false;
+  }
 
   ngOnInit() {
     this.apiService.getUsersById(this.ActivetedRoute.snapshot.params.id).subscribe(user =>{
       this.user = user;
 
       if(this.user.own_cats) {
-        this.own_cats = this.user.own_cats;
+        this.ownCats = this.user.own_cats;
         this.hasCats = true;
 
-        for (let o_cI of this.own_cats) {
+        for (let o_cI of this.ownCats) {
           this.apiService.getCatsById(o_cI.breed_id, o_cI.id).subscribe(cats => {
             this.cats = cats;
             this.catsItems.push(cats);

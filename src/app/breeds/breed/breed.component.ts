@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import catsData from  '../../data/cats.json';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-breed',
@@ -9,14 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BreedComponent implements OnInit {
 
-  id: any;
-  cats: any;
+  id : string;
+  breeds: Array<[]>;
 
-  constructor(public actRoute: ActivatedRoute) { }
+  constructor(public actRoute: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
     this.id = this.actRoute.snapshot.params['id'];
-    this.cats  = catsData.find((item) => (item.id === this.id));
+    this.apiService.getAllCats().subscribe(breeds => {
+      this.breeds  = breeds.find((item) => (item.id === this.id));
+    })
   }
 
 }

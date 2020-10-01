@@ -8,21 +8,28 @@ import { ApiService } from '../api.service';
 })
 export class UserCatsComponent implements OnInit {
 
-  user: any = [];
-  userID = sessionStorage.getItem("LoggedInUser");
-  own_cats;
-  cats: any = [];
-  catsItems: any = [];
-  constructor(private apiService: ApiService) { }
+  userID: string;
+  user: any;
+  cats: any;
+  catsItems: any;
+  ownCats: any;
+
+  constructor(private apiService: ApiService) { 
+    this.userID = sessionStorage.getItem("LoggedInUser");
+    this.user = [];
+    this.cats = [];
+    this.catsItems = [];
+    this.ownCats = [];
+  }
 
   ngOnInit() {
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
 
       if(this.user.own_cats) {
-        this.own_cats = this.user.own_cats;
+        this.ownCats = this.user.own_cats;
 
-        for (let o_cI of this.own_cats) {
+        for (let o_cI of this.ownCats) {
           this.apiService.getCatsById(o_cI.breed_id, o_cI.id).subscribe(cats => {
             this.cats = cats;
             this.catsItems.push(cats);

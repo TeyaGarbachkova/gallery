@@ -7,15 +7,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FilterBestPipe } from './filterPipe/filter-best.pipe';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { CarouselCatsComponent } from '../carousel-cats/carousel-cats.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
-  declarations: [ListComponent, FilterPipe, AlbumFilterComponent, FilterBestPipe],
+  declarations: [ListComponent, FilterPipe, AlbumFilterComponent, FilterBestPipe, CarouselCatsComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    IconSpriteModule
+    IconSpriteModule,
+    CarouselModule
   ],
   exports: [ListComponent]
 })

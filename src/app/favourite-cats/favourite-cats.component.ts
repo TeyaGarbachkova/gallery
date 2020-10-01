@@ -8,21 +8,29 @@ import { ApiService } from '../api.service';
 })
 export class FavouriteCatsComponent implements OnInit {
 
-  user: any = [];
-  userID = sessionStorage.getItem("LoggedInUser");
-  cats_likes;
-  cats: any = [];
-  catsItems: any = [];
-  constructor(private apiService: ApiService) { }
+  user: any;
+  userID: string;
+  cats: any;
+  catsItems: any;
+  catsLikes: any;
+
+  constructor(private apiService: ApiService) {
+    this.userID = sessionStorage.getItem("LoggedInUser");
+    this.user = [];
+    this.cats = [];
+    this.catsItems = [];
+    this.catsLikes = [];
+  }
 
   ngOnInit() {
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
 
       if(this.user.cats_like) {
-        this.cats_likes = this.user.cats_like;
+        this.catsLikes = this.user.cats_like;
 
-        for (let c_l of this.cats_likes) {
+        for (let c_l of this.catsLikes) {
+
           if(c_l) {
             this.apiService.getCatsById(c_l.breed_id, c_l.id).subscribe(cats => {
               this.cats = cats;

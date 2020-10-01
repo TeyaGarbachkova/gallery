@@ -8,21 +8,33 @@ import { ApiService } from '../../api.service';
 })
 export class CreateCatComponent implements OnInit {
 
-  userID = sessionStorage.getItem("LoggedInUser");
-  user;
-  own_cats: any = [];
-  cats: any = [];
-  catsItems: any = [];
-  breedID;
-  breeds: any = [];
-  inputsImg: any= [''];
-  isRemoveInput: boolean = true; 
-  images: any = [];
-  hasMainImg: boolean = false;
-  newMainImg;
-  newImg: any = [];
+  userID: string;
+  user: any;
+  cats: any;
+  catsItems: any;
+  ownCats: any;
+  breedID: string;
+  breeds: any;
+  inputsImg: any;
+  isRemoveInput: boolean; 
+  images: any;
+  hasMainImg: boolean;
+  newMainImg: string;
+  newImg: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+    this.userID = sessionStorage.getItem("LoggedInUser");
+    this.user = [];
+    this.cats = [];
+    this.catsItems = [];
+    this.ownCats = [];
+    this.breeds = [];
+    this.images = [];
+    this.inputsImg = [''];
+    this.newImg = [];
+    this.isRemoveInput = true;
+    this.hasMainImg = false;
+  }
 
   ngOnInit() {
     this.apiService.getAllCats().subscribe(cats => {
@@ -30,6 +42,7 @@ export class CreateCatComponent implements OnInit {
 
       for(let key in this.cats) {
         this.breedID = key;
+
         let breed = {
           breed_id : this.breedID,
           name : this.cats[key].breeds_name
@@ -41,7 +54,7 @@ export class CreateCatComponent implements OnInit {
 
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
-      this.own_cats = this.user.own_cats;
+      this.ownCats = this.user.ownCats;
     })
     
   }
@@ -85,9 +98,9 @@ export class CreateCatComponent implements OnInit {
     }
     
     if(this.cats[addCatForm.value.breed].cats) {
-      this.apiService.postCats(this.userID, addCatForm.value.breed, this.cats[addCatForm.value.breed].cats.length, addCatForm.value.age, addCatForm.value.sex, addCatForm.value.name, addCatForm.value.mainImg, this.images, this.own_cats.length)
+      this.apiService.postCats(this.userID, addCatForm.value.breed, this.cats[addCatForm.value.breed].cats.length, addCatForm.value.age, addCatForm.value.sex, addCatForm.value.name, addCatForm.value.mainImg, this.images, this.ownCats.length)
     } else {
-      this.apiService.postCats(this.userID, addCatForm.value.breed, 0, addCatForm.value.age, addCatForm.value.sex, addCatForm.value.name, addCatForm.value.mainImg, this.images, this.own_cats.length)
+      this.apiService.postCats(this.userID, addCatForm.value.breed, 0, addCatForm.value.age, addCatForm.value.sex, addCatForm.value.name, addCatForm.value.mainImg, this.images, this.ownCats.length)
     }
   }
 

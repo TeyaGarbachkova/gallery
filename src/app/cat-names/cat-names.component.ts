@@ -8,11 +8,15 @@ import { ApiService } from '../api.service';
 })
 export class CatNamesComponent implements OnInit {
 
-  catNames: any = [];
-  catNamesGroup: any = [];
-  alphabets: any = [];
+  alphabets: Array<string>;
+  catNames: string[];
+  catNamesGroup: Array<{}>;
   letter: string;
-  constructor(private apiService: ApiService) { }
+
+  constructor(private apiService: ApiService) { 
+    this.catNamesGroup = [];
+    this.alphabets = [];
+  }
 
   ngOnInit() {
     this.apiService.getCatNames().subscribe(names => {
@@ -31,11 +35,11 @@ export class CatNamesComponent implements OnInit {
     }) 
   }
 
-  getLetter(letter) {
+  getLetter(letter: string) {
     this.letter = letter;
   }
 
-  isEmptyObject(obj:any) {
+  isEmptyObject(obj: Array<[]>) {
     return (obj.length > 0);
   }
 }

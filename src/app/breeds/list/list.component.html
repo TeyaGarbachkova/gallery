@@ -1,11 +1,13 @@
 <div class="content">
 <div class="col-auto">
-  <div class="vertical-thumb_img" *ngFor="let cats of Cats">
-    <a [routerLink]="['/breed', cats.id]">
-      <figure class="img-thumb overlay-img-effect">
-        <img src="{{ cats.img_url }}" alt="" class="img-thumb_img"/>
+  <div class="vertical-thumb_img" *ngFor="let breed of breeds">
+    <a [routerLink]="['/breed', breed.id]">
+      <figure class="overlay-img-effect">
+        <div class="img-thumb">
+          <img src="{{ breed.img_url }}" alt="" class="img-thumb_img"/>
+        </div>
         <figcaption class="text-thumb bottom-text overlay-text">
-          <p class="text-thumb_txt">{{ cats.breeds_name }}</p>
+          <p class="text-thumb_txt">{{ breed.breeds_name }}</p>
         </figcaption>
       </figure>
     </a>

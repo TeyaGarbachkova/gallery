@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  users: any = [];
-  constructor(
-    private apiService: ApiService,
-    private router: Router
-    ) { }
+  users: any;
+
+  constructor(private apiService: ApiService, private router: Router) { 
+    this.users = [];
+  }
 
   ngOnInit() {
     this.apiService.getUsers().subscribe(users => {

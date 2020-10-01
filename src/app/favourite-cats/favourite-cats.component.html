@@ -1,8 +1,10 @@
 <div class="content">
   <div class="col-auto">
     <figure class="vertical-thumb_img" *ngFor="let cat of catsItems">
-      <div class="img-thumb">
-        <img src="{{ cat.main_img }}" alt="" class="img-thumb_img">
+      <div>
+        <div class="img-thumb">
+          <img src="{{ cat.main_img }}" alt="" class="img-thumb_img">
+        </div>
         <figcaption class="text-thumb bottom-text bottom-text-left"> 
           {{ cat.name }}
         </figcaption>

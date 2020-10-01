@@ -11,42 +11,49 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  cats_likes;
-  breedId;
-  bestId;
-  characterId;
-  albumCats: any = [];
-  cats: any = [];
-  catsBreed: any = [];
-  catsItems: any = [];
+  breedId: string;
+  bestId: string;
+  cats: any;
+  catsBreed: any;
+  catsItems: any;
+  albumCats: any;
+  catsLikes: any;
   isLike: boolean;
   user: any;
-  userID = sessionStorage.getItem("LoggedInUser");
-  count: number = 0;
+  userID: string;
+  count: number;
   idLike: number;
   showCatList: boolean;
 
   constructor(
-    private lightbox: Lightbox, 
+    private lightbox: Lightbox,
     private apiService: ApiService,
     private router: Router,
     private ActivetedRoute: ActivatedRoute) {
+      this.cats = [];
+      this.catsBreed = [];
+      this.catsItems = [];
+      this.albumCats = [];
+      this.userID = sessionStorage.getItem("LoggedInUser");
+      this.count = 0;
     }
 
-  open(cat: any): void {
+  open(cat: any) {
     // popup images
     this.albumCats = [];
     let allImages = cat.img.concat(cat.main_img);
        for (let img of allImages) {
-          const album = {
-            src: img
-          };
+
+        const album = {
+          src: img,
+          caption: cat.name
+        };
 
         this.albumCats.push(album);
       }
 
     // open lightbox
-    this.lightbox.open(this.albumCats);
+    this.lightbox.open(this.albumCats, cat.id, { centerVertically: true });
   }
 
   close(): void {
@@ -82,14 +89,14 @@ export class ListComponent implements OnInit {
           this.user = user;
 
           if(this.user.cats_like) {
-            this.cats_likes = this.user.cats_like;
+            this.catsLikes = this.user.cats_like;
 
-            for (let c_l in this.cats_likes) {
+            for (let c_l in this.catsLikes) {
 
-              if(this.cats_likes[c_l]) {
+              if(this.catsLikes[c_l]) {
                 this.idLike = Number(c_l);
 
-                this.apiService.getCatsById(this.cats_likes[c_l].breed_id, this.cats_likes[c_l].id).subscribe(cats => {
+                this.apiService.getCatsById(this.catsLikes[c_l].breed_id, this.catsLikes[c_l].id).subscribe(cats => {
                   this.cats = cats;
 
                   for (let catIt of this.catsItems) {
@@ -104,8 +111,8 @@ export class ListComponent implements OnInit {
               }
             }
           } else {
-            this.cats_likes = [];
-            this.cats_likes.length = 0;
+            this.catsLikes = [];
+            this.catsLikes.length = 0;
             this.showCatList = true;
           }
         })
@@ -134,11 +141,11 @@ export class ListComponent implements OnInit {
   }
 
 
-  displayBreedId(id) {
+  displayBreedId(id: string) {
     this.breedId = id;
   }
 
-  displayBestId(id) {
+  displayBestId(id: string) {
     this.bestId = id;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import catsData from  '../../data/cats.json';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-list',
@@ -8,11 +8,14 @@ import catsData from  '../../data/cats.json';
 })
 export class ListComponent implements OnInit {
 
-  Cats: any = catsData;
+  breeds: Array<[]>;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getAllCats().subscribe(breeds => {
+      this.breeds = breeds;
+    })
   }
 
 }

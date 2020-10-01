@@ -29,8 +29,7 @@
   }
 
   a {
-    font-size: 20px;
-    padding-left: 7px;
+    font-size: 10px;
   }
 }
 
@@ -48,11 +47,25 @@
 
   .header-btn {
     position: absolute;
-    top: 25%;
-    right: 10%;
+    top: 8%;
+    right: 15%;
     margin: 0;
     padding: 0;
     border-top: none;
+
+    &.shape {
+      background: url("../../assets/img/dog-food.svg") no-repeat;
+      background-size: cover;
+      width: 80px;
+      height: 80px;
+    }
+
+    a {
+      position: absolute;
+      top: 56%;
+      left: 50%;
+      transform: translate(-50%, -56%);
+    }
   }
 
   .header-btn.border-top {

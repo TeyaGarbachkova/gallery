@@ -9,10 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 export class CatArticlesComponent implements OnInit {
 
   //kind: any;
-  articleFirst: boolean = false;
-  articleSecond: boolean = false;
-  articleThird: boolean = false;
-  constructor(private activeRoutedService: ActivatedRoute) { }
+  articleFirst: boolean;
+  articleSecond: boolean;
+  articleThird: boolean;
+  
+  constructor(private activeRoutedService: ActivatedRoute) {
+    this.articleFirst = false;
+    this.articleSecond = false;
+    this.articleThird = false;
+  }
 
   ngOnInit() {
     this.activeRoutedService.data.subscribe(data => {

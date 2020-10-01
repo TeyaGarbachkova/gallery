@@ -10,32 +10,41 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class CatProfileComponent implements OnInit {
 
-  cat: any = [];
-  cats: any = [];
-  albumCats: any = [];
+  cat: any;
+  cats: any;
+  albumCats: any;
   breedName: string;
-  user: any = [];
-  userID = sessionStorage.getItem("LoggedInUser");
-  hasBtnEdit: boolean = false;
-  hasGallery: boolean = false;
+  user: any;
+  userID:  string;
+  hasBtnEdit: boolean;
+  hasGallery: boolean;
 
-  constructor(private ActivetedRoute: ActivatedRoute,
-  private apiService: ApiService,
-  private route: Router,
-  private lightbox: Lightbox) { }
+  constructor(
+    private ActivetedRoute: ActivatedRoute,
+    private apiService: ApiService,
+    private lightbox: Lightbox) { 
+      this.userID = sessionStorage.getItem("LoggedInUser");
+      this.user = [];
+      this.cat = [];
+      this.cats = [];
+      this.albumCats = [];
+      this.hasBtnEdit = false;
+      this.hasGallery = false;
+    }
 
   open(cat: any): void {
     // popup images
     let allImages = cat.img.concat(cat.main_img);
        for (let img of allImages) {
           const album = {
-            src: img
+            src: img,
+            caption: cat.name
           };
         this.albumCats.push(album);       
       }
 
     // open lightbox
-    this.lightbox.open(this.albumCats);
+    this.lightbox.open(this.albumCats, cat.id, { centerVertically: true });
   }
 
   close(): void {
@@ -72,7 +81,7 @@ export class CatProfileComponent implements OnInit {
     })
   }
 
-  countLikes(count: any) {
+  countLikes(count: number) {
     return count > 0;
   }
 

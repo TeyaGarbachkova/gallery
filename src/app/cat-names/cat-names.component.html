@@ -5,10 +5,10 @@
 
   <div class="">
     <div class="list-names" *ngFor="let name of catNamesGroup | filterLetter:letter">
-      <h3 class="letter-names">{{name.letter}}</h3>
+      <h3 class="letter-names">{{ name.letter }}</h3>
       <div *ngIf="isEmptyObject(name.names | keyvalue)" class="grid-names item-name">
         <div *ngFor="let n of name.names | keyvalue">
-          {{n.value}}
+          {{ n.value }}
         </div>
       </div>
 

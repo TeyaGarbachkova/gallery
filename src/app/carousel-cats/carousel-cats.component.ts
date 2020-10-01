@@ -10,13 +10,17 @@ import { Router } from '@angular/router';
 })
 export class CarouselCatsComponent implements OnInit {
 
-  cats: any = [];
-  catsItems: any = [];
-  mostLiked: any = [];
+  cats: any;
+  catsItems: any;
+  mostLiked: any;
   topLiked: any = [];
   
   constructor(private apiService: ApiService,
-  private router: Router,) { }
+  private router: Router,) {
+    this.cats = [];
+    this.catsItems = [];
+    this.mostLiked = [];
+  }
 
   ngOnInit() {
     this.apiService.getAllCats().subscribe(cats => {
@@ -31,6 +35,7 @@ export class CarouselCatsComponent implements OnInit {
       }
 
       this.mostLiked = this.catsItems;
+      console.log(this.mostLiked)
 
       this.mostLiked.sort(function(a,b) {
           return (b.countLikes - a.countLikes);

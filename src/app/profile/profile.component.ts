@@ -10,8 +10,8 @@ import { passwordMatch } from '../validator-directive/validator';
 })
 export class ProfileComponent implements OnInit {
 
-  userID;
-  user;
+  userID: string;
+  user: any;
   editProfileForm: FormGroup;
 
   constructor(fb: FormBuilder, private apiService: ApiService) {
@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.apiService.getUsersById(this.userID).subscribe(user => {
       this.user = user;
-      console.log(this.user)
 
       this.editProfileForm.patchValue({
         username: this.user.username,
@@ -52,8 +51,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onFormSubmit(editProfileForm) {
-    console.log(editProfileForm.value.name)
-
     this.apiService.postUsers(editProfileForm.value.email, editProfileForm.value.facebook, editProfileForm.value.instagram, editProfileForm.value.name, editProfileForm.value.username, editProfileForm.value.image, editProfileForm.value.passwords.password, this.userID);
   }
 
