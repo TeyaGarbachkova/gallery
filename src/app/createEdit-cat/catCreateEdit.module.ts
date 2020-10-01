@@ -8,8 +8,7 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [
-    createEditCatComponents,
-    EditCatComponent
+    createEditCatComponents
   ],
   imports: [
       CommonModule,

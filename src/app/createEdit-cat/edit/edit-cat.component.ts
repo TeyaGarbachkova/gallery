@@ -82,7 +82,7 @@ export class EditCatComponent implements OnInit {
     }
   }
 
-  addComponent(img) {
+  addComponent() {
     this.inputsImg = [...this.inputsImg, ""];
     this.isRemoveInput = true;
   }

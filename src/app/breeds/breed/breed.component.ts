@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/api.service';
 export class BreedComponent implements OnInit {
 
   id : string;
-  breeds: Array<[]>;
+  breeds: any;
 
   constructor(public actRoute: ActivatedRoute, private apiService: ApiService) { }
 

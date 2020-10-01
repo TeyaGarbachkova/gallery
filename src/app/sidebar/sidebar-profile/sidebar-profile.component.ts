@@ -15,7 +15,7 @@ export class SidebarProfileComponent implements OnInit {
   username: string;
   userImg: string;
 
-  constructor(private route: Router, private apiService: ApiService, private auth: AuthService) {
+  constructor(private route: Router, private apiService: ApiService, public auth: AuthService) {
     this.userID = JSON.parse(sessionStorage.getItem("LoggedInUser"));
   }
 

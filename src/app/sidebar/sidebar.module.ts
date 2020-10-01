@@ -13,6 +13,6 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
     RouterModule,
     IconSpriteModule
   ],
-  exports: [SidebarProfileComponent]
+  exports: []
 })
 export class SidebarModule { }

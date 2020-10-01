@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/api.service';
 export class LoginComponent implements OnInit {
 
   users: any;
-  constructor(private auth: AuthService, private route: Router, private apiService: ApiService) {
+  constructor(public auth: AuthService, private route: Router, private apiService: ApiService) {
     this.users = [];
   }
 
