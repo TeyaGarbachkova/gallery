@@ -11,7 +11,7 @@ export class CatNamesComponent implements OnInit {
   alphabets: Array<string>;
   catNames: string[];
   catNamesGroup: Array<{}>;
-  letter: string;
+  selectedLetter: string;
 
   constructor(private apiService: ApiService) { 
     this.catNamesGroup = [];
@@ -36,7 +36,13 @@ export class CatNamesComponent implements OnInit {
   }
 
   getLetter(letter: string) {
-    this.letter = letter;
+    let prevLetter = new String(this.selectedLetter);
+    
+    if(prevLetter == letter) {
+      this.selectedLetter = undefined;
+    } else {
+      this.selectedLetter = letter;
+    }
   }
 
   isEmptyObject(obj: Array<[]>) {

@@ -9,12 +9,13 @@ $('.hamburger-btn, .close-menu').on('click', function(e) {
   $('.navbar').fadeToggle();
 });
 
-$('.global-overlay').on('click', function(e) {
+$('.global-overlay, .navbar .navbar-list li').on('click', function(e) {
   e.preventDefault();
 
   $('body').removeClass('overflow-hidden');
-  $(this).fadeOut();
+  $('.global-overlay').fadeOut();
   $('.navbar').fadeOut();
   $('.hamburger-btn, .close-menu').removeClass('open');
 });
+
 });

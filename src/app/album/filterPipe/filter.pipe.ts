@@ -6,9 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(values: any[] , args?: any): any {
-    if(args == undefined) {
+    if(args == undefined || args == "null") {
       return values;
     }
+
     return values.filter(val => val.id_breed == args);
   }
 

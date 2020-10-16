@@ -3,24 +3,27 @@
     <div class="form-row">
       <div class="form-group">
         <label for="breed">Choose breed</label>
-        <select #breedInput="ngModel" ngModel name="breed" class="form-input" id="breed" placeholder="Choose Breed">
-          <option [value]=""></option>
+        <select #breedInput="ngModel" ngModel name="breed" class="form-input-primary" id="breed" placeholder="Choose Breed">
+          <option [value]="null" selected>Choose breed</option>
           <option *ngFor="let catBreed of catsBreed | keyvalue" [value]="catBreed.key">
             {{ catBreed.value }}
           </option>
         </select>
+        <span class="form-group-icon"><svg-icon-sprite [src]="'assets/sprites/sprite.svg#icat'" [width]="'28px'" [height]="'28px'" [viewBox]="'0 0 28 28'"></svg-icon-sprite></span>
       </div>
     </div>
   </form>
-  <form #selectBest="ngForm" (change)="selectBestHandler(selectBest)" class="form">
+  <form #selectBest="ngForm" class="form">
     <div class="form-row">
-      <div class="form-group">
-        <label for="filterBest">Choose the most</label>
-        <select #filterBestInput="ngModel" ngModel name="filterBest" class="form-input" id="filterBest" placeholder="Choose">
-          <option [value]=""></option>
-          <option [value]="1">The most like</option>
-          <option [value]="2">The most view</option>
-        </select>
+      <div class="form-group form-group-checkbox">
+        <div class="form-checkbox">
+          <input type="checkbox" (change)="selectBestHandler(selectBest)" #filterBestInput="ngModel" ngModel name="filterBest" id="filterBest" placeholder="">
+          <label for="filterBest">The most like</label>
+        </div>
+        <div class="form-checkbox">
+          <input type="checkbox" (change)="selectBestTopHandler(selectBest)" #filterBest3Input="ngModel" ngModel name="filterBest3" id="filterBest3" placeholder="">
+          <label for="filterBest3">Top 3 liked cats</label>
+        </div>
       </div>
     </div>
   </form>

@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filterBest'
+  name: 'filterBestTop'
 })
-export class FilterBestPipe implements PipeTransform {
+export class FilterBestTopPipe implements PipeTransform {
 
   transform(values: any[], args?: boolean): any {
-
-    if(args == undefined) {
+    
+    if(args == undefined ) {
       return values;
     }
 
@@ -17,13 +17,13 @@ export class FilterBestPipe implements PipeTransform {
       mostLiked.sort(function(a,b) {
           return b.countLikes - a.countLikes;
       });
-      
-      return mostLiked;
+      return mostLiked.slice(0,3);
 
     } else {
       return values;
     }
+
+    
   }
-  
 
 }

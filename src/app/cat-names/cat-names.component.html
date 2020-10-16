@@ -1,10 +1,12 @@
 <div class="content">
   <div class="alphabet-list">
-      <p class="letter" *ngFor="let letter of alphabets" (click)="getLetter(letter)">{{ letter }}</p>
+      <p class="letter" *ngFor="let letter of alphabets" (click)="getLetter(letter)" [class.active]="selectedLetter === letter">
+        {{ letter }}
+      </p>
   </div>
 
   <div class="">
-    <div class="list-names" *ngFor="let name of catNamesGroup | filterLetter:letter">
+    <div class="list-names" *ngFor="let name of catNamesGroup | filterLetter:selectedLetter">
       <h3 class="letter-names">{{ name.letter }}</h3>
       <div *ngIf="isEmptyObject(name.names | keyvalue)" class="grid-names item-name">
         <div *ngFor="let n of name.names | keyvalue">

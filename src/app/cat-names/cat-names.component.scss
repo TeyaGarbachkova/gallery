@@ -24,6 +24,12 @@
       transform: scale(1.1);
       border: 2px solid $secondary-color;
     }
+
+    &.active {
+      border: 2px solid $main-color-dark;
+      background: $main-color-dark;
+      color: $white;
+    }
   }
 }
 

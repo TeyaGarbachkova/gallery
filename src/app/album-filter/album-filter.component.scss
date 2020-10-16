@@ -1,3 +1,36 @@
+@import  'abstracts/variables.scss';
+@import 'abstracts/mixins.scss';
+
 .album-filters {
   margin-bottom: 30px;
+  background-color: $border-color;
+  box-shadow: 0 0 16px rgba(197, 197, 197,.16);
+
+  .form-row {
+    margin-top: 0;
+    padding: 20px;
+
+    .form-input-primary {
+      padding-left: 45px;
+    }
+
+    .form-group-checkbox {
+      margin-top: -40px;
+    }
+
+    .form-group-icon {
+      top: 85%;
+      transform: translate(-2%, -85%);
+    }
+  }
+}
+
+@include medium {
+  .album-filters {
+    .form-row {
+      .form-group-checkbox {
+        margin-top: 25px;
+      }
+    }
+  }
 }

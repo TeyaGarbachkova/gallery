@@ -1,6 +1,6 @@
-<app-carousel-cats></app-carousel-cats>
+<!-- <app-carousel-cats></app-carousel-cats> -->
 <div class="content">
-  <app-album-filter [catsBreed]="catsBreed" (breedId)="displayBreedId($event)" (bestId)="displayBestId($event)"></app-album-filter>
+  <app-album-filter [catsBreed]="catsBreed" (breedId)="displayBreedId($event)" (bestId)="displayBestId($event)" (bestIdTop)="displayBestIdTop($event)"></app-album-filter>
   <ng-template #loader>
     <div class="loader">
       <img src="assets/img/loader.gif" alt="">
@@ -8,7 +8,7 @@
   </ng-template>
   <ng-template #catList>
   <div class="col-auto">
-    <div class="vertical-thumb_img border" *ngFor="let cat of catsItems | filter:breedId | filterBest:bestId; let i=index">
+    <div class="vertical-thumb_img border" *ngFor="let cat of catsItems | filter:breedId | filterBest:bestId | filterBestTop: bestIdTop; let i=index">
       <a [routerLink]="['/user', cat.user_id]" class="img-text">
         <img *ngIf="cat.user_img" class="img-circle" src="{{cat.user_img}}" alt="{{cat.username}}">
         <img *ngIf="!cat.user_img" src="../assets/img/default.png" alt="" width="30" height="30">

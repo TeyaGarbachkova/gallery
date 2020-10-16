@@ -10,6 +10,7 @@ export class AlbumFilterComponent implements OnInit {
   @Input() catsBreed: any = [];
   @Output() breedId = new EventEmitter();
   @Output() bestId = new EventEmitter();
+  @Output() bestIdTop = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -21,5 +22,10 @@ export class AlbumFilterComponent implements OnInit {
 
   selectBestHandler(selectBestForm: any) {
     this.bestId.emit(selectBestForm.value.filterBest);
+  }
+
+  selectBestTopHandler(selectBestTopForm: any) {
+    this.bestIdTop.emit(selectBestTopForm.value.filterBest3);
+    
   }
 }

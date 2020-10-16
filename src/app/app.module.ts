@@ -13,7 +13,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { CarouselCatsComponent } from './carousel-cats/carousel-cats.component';
 import { ListComponent } from './breeds/list/list.component';
 import { BreedComponent } from './breeds/breed/breed.component';
 // import { FilterPipe } from './album/filter.pipe';
@@ -39,7 +38,6 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     NotFoundComponent,
     ProfileComponent,
-    // CarouselCatsComponent,
     ListComponent,
     BreedComponent,
     UserCatsComponent,

@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
 
   breedId: string;
   bestId: string;
+  bestIdTop: string;
   cats: any;
   catsBreed: any;
   catsItems: any;
@@ -120,7 +121,7 @@ export class ListComponent implements OnInit {
         this.showCatList = true;
       }
 
-      console.log(this.catsItems)
+      //console.log(this.catsItems)
       
     })
   }
@@ -147,5 +148,12 @@ export class ListComponent implements OnInit {
 
   displayBestId(id: string) {
     this.bestId = id;
+  }
+
+  displayBestIdTop(id: string) {
+    //console.log(id);
+    //this.bestIdTop = id;
+    this.bestIdTop = id;
+    
   }
 }

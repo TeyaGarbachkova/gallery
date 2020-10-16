@@ -22,6 +22,11 @@ import { ListComponent as BreedListComponent } from '../breeds/list/list.compone
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full', // когато нямаме нищо след нашия домейн
+    component: AlbumListComponent
+  },
+  {
     path: 'album',
     pathMatch: 'full', // когато нямаме нищо след нашия домейн
     component: AlbumListComponent

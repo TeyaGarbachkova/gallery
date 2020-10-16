@@ -1,18 +1,24 @@
 @import  'abstracts/variables.scss';
+@import 'abstracts/mixins.scss';
 
 .main-carousel {
   position: relative;
 }
 
 .main-carousel_text {
-  position: absolute;
-  top: 18%;
-  right: 0;
-  width: 40%;
-  color: $white;
+  // position: absolute;
+  // top: 18%;
+  // right: 0;
+  // width: 40%;
+  // color: $white;
 
-  h2 {
-    margin: 0 20px 20px;
+  .carousel-title {
+    text-align: left;
+    margin: 10px 0;
+  }
+
+  .btn {
+    display: none;
   }
 }
 
@@ -23,8 +29,11 @@ owl-carousel-o {
         .owl-dots {
           position: absolute;
           left: 50%;
+          // top: 40%;
+          // transform: translate(-50%, -40%);
+          top: calc( 100% - 95px);
+          transform: translateX(-50%);
           z-index: 21;
-          bottom: 2%;
 
           .owl-dot {
             span {
@@ -32,8 +41,8 @@ owl-carousel-o {
               border: 2px solid transparent;
               border-radius: 50%;
               box-shadow: 0 0 0 2px $white;
-              width: 15px;
-              height: 15px;
+              width: 10px;
+              height: 10px;
             }
           }
           .owl-dot.active span {
@@ -44,9 +53,41 @@ owl-carousel-o {
     }
   }
 }
-// .owl-theme .owl-dots .owl-dot span {
-//   background-color: red;
-//   border: 4px solid #fff;
-//   border-radius: 50%;
-//   box-shadow: 0 0 0 5px red;
-// }
+
+@include medium {
+  .main-carousel_text {
+    position: absolute;
+    top: 18%;
+    right: 0;
+    width: 40%;
+    color: $white;
+
+    .carousel-title {
+      margin: 0 20px 20px;
+    }
+
+    .btn {
+      display: inline-block;
+    }
+  }
+
+  owl-carousel-o {
+    ::ng-deep{
+      .owl-carousel{
+
+          .owl-dots {
+            top: 95%;
+            transform: translate(-50%, -95%);
+
+            .owl-dot {
+              span {
+                width: 15px;
+                height: 15px;
+              }
+            }
+          }
+
+      }
+    }
+  }
+}
